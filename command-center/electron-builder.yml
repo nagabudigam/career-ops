@@ -1,0 +1,45 @@
+appId: io.careerops.desktop
+productName: Career-Ops
+copyright: Career-Ops
+
+directories:
+  output: dist
+  buildResources: build
+
+# Only the Electron main process ships in the app bundle. The Next.js server
+# (with its own trimmed node_modules) rides along as an unpacked resource.
+files:
+  - electron/**/*
+  - package.json
+
+extraResources:
+  - from: .next/standalone
+    to: standalone
+
+# The standalone server reads/writes real files and spawns processes, so keep
+# the app code in asar but the server resource on disk (extraResources is
+# already outside asar).
+asar: true
+
+mac:
+  category: public.app-category.productivity
+  target:
+    - dmg
+    - zip
+  # Build unsigned by default. To sign + notarize, remove `identity: null`
+  # and set CSC_LINK / CSC_KEY_PASSWORD (and APPLE_ID / APPLE_APP_SPECIFIC_PASSWORD).
+  identity: null
+
+win:
+  target:
+    - nsis
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+
+linux:
+  target:
+    - AppImage
+  category: Utility

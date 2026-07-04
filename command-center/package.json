@@ -1,0 +1,49 @@
+{
+  "name": "career-ops-web",
+  "productName": "Career-Ops",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Career-Ops Command Center — a dark SaaS dashboard over the career-ops job-search pipeline.",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "next dev -p 4321",
+    "build": "next build",
+    "start": "next start -p 4321",
+    "lint": "next lint",
+    "desktop": "concurrently -k -n next,electron \"next dev -p 4321\" \"wait-on tcp:127.0.0.1:4321 && cross-env ELECTRON_DEV=1 electron electron/main.js\"",
+    "desktop:build": "next build && node electron/prepare-standalone.mjs",
+    "dist": "npm run desktop:build && electron-builder",
+    "dist:mac": "npm run desktop:build && electron-builder --mac",
+    "dist:win": "npm run desktop:build && electron-builder --win"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "imapflow": "^1.4.2",
+    "js-yaml": "^4.1.0",
+    "lucide-react": "^0.456.0",
+    "mailparser": "^3.9.12",
+    "marked": "^14.1.4",
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-markdown": "^9.0.1",
+    "recharts": "^2.15.0",
+    "remark-gfm": "^4.0.0",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/mailparser": "^3.4.6",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "wait-on": "^8.0.1"
+  }
+}

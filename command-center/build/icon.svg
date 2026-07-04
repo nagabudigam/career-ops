@@ -1,0 +1,29 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Career-Ops</title>
+  <desc>A north-star mark on an indigo-to-cyan rounded square.</desc>
+  <defs>
+    <linearGradient id="bg" x1="140" y1="140" x2="884" y2="884" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="sheen" cx="0.32" cy="0.26" r="0.75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="star" x1="512" y1="267" x2="512" y2="757" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eaf6ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- macOS-grid squircle: 824x824 centered in 1024 with transparent margin -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#sheen)"/>
+
+  <!-- North star: bold 4-point compass star, elongated vertical axis -->
+  <path d="M512 267 L553 471 L727 512 L553 553 L512 757 L471 553 L297 512 L471 471 Z"
+        fill="url(#star)"/>
+  <!-- compass hub -->
+  <circle cx="512" cy="512" r="34" fill="#4338ca"/>
+  <circle cx="512" cy="512" r="15" fill="#ffffff"/>
+</svg>
